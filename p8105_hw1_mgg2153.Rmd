@@ -1,0 +1,7 @@
+---
+title: "p8105_hw1_mgg2153"
+author: "mggn"
+date: "9/16/2020"
+output: github_document
+---
+
