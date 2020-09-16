@@ -19,6 +19,7 @@ mg_dataf =
     vec_char = c("Hello", "world", "I", "am", "Maria", "and", "Frankie", "is","my", "pug"),
     factor_vec = factor(c("noun", "noun", "noun", "verb", "noun", "noun", "noun", "verb", "adj", "noun"))
   )
+print (mg_dataf)
 ```
 
 Take the mean of each variable in my data frame.
