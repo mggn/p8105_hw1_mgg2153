@@ -5,3 +5,25 @@ date: "9/16/2020"
 output: github_document
 ---
 
+Problem 1: First, load the tidyverse library and create a dataframe using tibble
+
+```{r}
+library(tidyverse)
+
+mg_dataf = 
+  tibble(
+    samp = rnorm(10),
+    vec_logical = as.logical(samp > 0),
+    vec_char = c("Hello", "world", "I", "am", "Maria", "and", "Frankie", "is","my", "pug"),
+    factor_vec = factor(c("noun", "noun", "noun", "verb", "noun", "noun", "noun", "verb", "adj", "noun"))
+  )
+```
+
+Take the mean of each variable in my data frame.
+
+```{r}
+mean(pull(mg_dataf, samp))
+mean(pull(mg_dataf, vec_logical))
+mean(pull(mg_dataf, vec_char))
+mean(pull(mg_dataf, factor_vec))
+```
