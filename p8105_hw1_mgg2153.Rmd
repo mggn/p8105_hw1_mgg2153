@@ -5,11 +5,13 @@ date: "9/16/2020"
 output: github_document
 ---
 
+```{r}
+library(tidyverse)
+```
+
 Problem 1: First, load the tidyverse library and create a dataframe using tibble
 
 ```{r}
-library(tidyverse)
-
 mg_dataf = 
   tibble(
     samp = rnorm(10),
