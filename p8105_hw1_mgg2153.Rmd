@@ -35,23 +35,26 @@ penguins
 ```{r load_penguins}
 data("penguins", package = "palmerpenguins")
 
-names(penguins)
-str(penguins)
-levels(penguins$island)
-
 ```
 
-The penguins dataset has 344 observations and 8 variables, which are: `r names(penguins)`. 
+The penguins dataset has `r nrow(penguins)` observations and `r ncol(penguins)` variables, 
+which are: `r names(penguins)`. 
+
 There are are three factor variables which are species, factor, and sex. 
 
 For variable species, the categories are `r levels(penguins$species)`.
 For variable island, the categories are `r levels(penguins$island)`.
 For variable sex, the categories are `r levels(penguins$sex)`.
 
+The other five variables are numeric types, which are summarized below:
 
-the size of the data set is
-rlevels (penguins$island)
-rlevels (penguins$species)
-rncol(penguins)
+flipper_length_mm:
+the mean is `r (mean(na.omit(penguins$flipper_length_mm))`
+the standard deviation is `r sd(na.omit(penguins$flipper_length_mm))`
 
-`r round(mean(penguins$flipper_length_mm))`
+bill_length_mm:
+the mean is `r (mean(na.omit(penguins$bill_length_mm))`
+the standard deviation is `r sd(na.omit(penguins$bill_length_mm))`
+
+
+
