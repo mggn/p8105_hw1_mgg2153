@@ -45,10 +45,15 @@ as.numeric(pull(mg_dataf, vec_char))
 as.numeric(pull(mg_dataf, factor_vec))
 ```
 
-```{r convert_var}
-x = as.numeric(pull(mg_dataf, vec_logical))*(pull(mg_dataf, samp))
-y = as.factor(pull(mg_dataf, vec_logical))*(pull(mg_dataf, samp))
-z = as.numeric(as.factor(pull(mg_dataf, factor_vec)))*(pull(mg_dataf, samp))
+And below, we can use the code to try and convert:  
+  * logical type to numeric, and multiplying by a numeric variable  
+  * logical to factor, and multiplying by a numeric variable  
+  * logical to factor to numeric, and multiply by a numeric variable  
+  
+```{r convert_multiply}
+as.numeric(pull(mg_dataf, vec_logical))*(pull(mg_dataf, samp))
+as.factor(pull(mg_dataf, vec_logical))*(pull(mg_dataf, samp))
+as.numeric(as.factor(pull(mg_dataf, vec_logical)))*(pull(mg_dataf, samp))
 ```
 
 ### Problem 2 - Penguins!
@@ -61,35 +66,35 @@ data("penguins", package = "palmerpenguins")
 ```
 #### Overview: penguins dataset
 
-The penguins dataset has `r nrow(penguins)` observations and `r ncol(penguins)` variables, 
-which are: `r names(penguins)`. 
+The penguins dataset has **`r nrow(penguins)`** observations and **`r ncol(penguins)`** variables, 
+which are: **`r names(penguins)`.** 
 
 There are are three factor variables which are species, factor, and sex. 
 
-For variable species, the categories are `r levels(penguins$species)`.
-For variable island, the categories are `r levels(penguins$island)`.
-For variable sex, the categories are `r levels(penguins$sex)`.
+For variable species, the categories are **`r levels(penguins$species)`**.
+For variable island, the categories are **`r levels(penguins$island)`**.
+For variable sex, the categories are **`r levels(penguins$sex)`**.
 
 The other five variables are numeric types, which are summarized below:
 
 flipper_length_mm:
-the mean is `r mean(na.omit(penguins$flipper_length_mm))`.
-the standard deviation is `r sd(na.omit(penguins$flipper_length_mm))`.
+the mean is **`r mean(na.omit(penguins$flipper_length_mm))`**.
+the standard deviation is **`r sd(na.omit(penguins$flipper_length_mm))`**.
 
 bill_length_mm:
-the mean is `r mean(na.omit(penguins$bill_length_mm))`.
-the standard deviation is `r sd(na.omit(penguins$bill_length_mm))`.
+the mean is **`r mean(na.omit(penguins$bill_length_mm))`**.
+the standard deviation is **`r sd(na.omit(penguins$bill_length_mm))`**.
 
 bill_depth_mm:
-the mean is `r mean(na.omit(penguins$bill_depth_mm))`.
-the standard deviation is `r sd(na.omit(penguins$bill_depth_mm))`.
+the mean is **`r mean(na.omit(penguins$bill_depth_mm))`**.
+the standard deviation is **`r sd(na.omit(penguins$bill_depth_mm))`**.
 
 body_mass_g:
-the mean is `r mean(na.omit(penguins$body_mass_g))`.
-the standard deviation is `r sd(na.omit(penguins$body_mass_g))`.
+the mean is **`r mean(na.omit(penguins$body_mass_g))`**.
+the standard deviation is **`r sd(na.omit(penguins$body_mass_g))`**.
 
 year:
-the range of years in the dataset is from `r min(penguins$year)` to `r max(penguins$year)`.
+the range of years in the dataset is from **`r min(penguins$year)`** to **`r max(penguins$year)`**.
 
 
 ### Scatterplot of bill length vs flipper length
