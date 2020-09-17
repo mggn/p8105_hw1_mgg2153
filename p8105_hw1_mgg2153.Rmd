@@ -6,13 +6,15 @@ output: github_document
 ---
 
 ## P8105 Homework 1
+First, we need to load the tidyverse package to be able to call specific functions:
 
-```{r}
+```{r load_tidy}
 library(tidyverse)
 ```
+Now, let's get started
 
 ### Problem 1 
-First, load the tidyverse library and create a dataframe using tibble
+Let's create a create a dataframe using the following code
 
 ```{r create_dataframe}
 mg_dataf = 
@@ -108,6 +110,7 @@ ggplot(data = penguins,
                  shape = species)
   )
 
+ggsave(file = 'first_penguins_scatter.png')
 ```
 
 
