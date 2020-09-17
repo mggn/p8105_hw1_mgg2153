@@ -49,12 +49,34 @@ For variable sex, the categories are `r levels(penguins$sex)`.
 The other five variables are numeric types, which are summarized below:
 
 flipper_length_mm:
-the mean is `r (mean(na.omit(penguins$flipper_length_mm))`
-the standard deviation is `r sd(na.omit(penguins$flipper_length_mm))`
+the mean is `r mean(na.omit(penguins$flipper_length_mm))`.
+the standard deviation is `r sd(na.omit(penguins$flipper_length_mm))`.
 
 bill_length_mm:
-the mean is `r (mean(na.omit(penguins$bill_length_mm))`
-the standard deviation is `r sd(na.omit(penguins$bill_length_mm))`
+the mean is `r mean(na.omit(penguins$bill_length_mm))`.
+the standard deviation is `r sd(na.omit(penguins$bill_length_mm))`.
+
+bill_depth_mm:
+the mean is `r mean(na.omit(penguins$bill_depth_mm))`.
+the standard deviation is `r sd(na.omit(penguins$bill_depth_mm))`.
+
+body_mass_g:
+the mean is `r mean(na.omit(penguins$body_mass_g))`.
+the standard deviation is `r sd(na.omit(penguins$body_mass_g))`.
+
+year:
+the range of years in the dataset is from `r min(penguins$year)` to `r max(penguins$year)`.
+
+```{r plotting}
+ggplot(data = penguins, 
+                       aes(x = bill_length_mm,
+                           y = flipper_length_mm)) +
+  geom_point(aes(color = species, 
+                 shape = species)
+  )
+
+```
+
 
 
 
