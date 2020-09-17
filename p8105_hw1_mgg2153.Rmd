@@ -30,3 +30,28 @@ mean(pull(mg_dataf, vec_logical))
 mean(pull(mg_dataf, vec_char))
 mean(pull(mg_dataf, factor_vec))
 ```
+
+penguins
+```{r load_penguins}
+data("penguins", package = "palmerpenguins")
+
+names(penguins)
+str(penguins)
+levels(penguins$island)
+
+```
+
+The penguins dataset has 344 observations and 8 variables, which are: `r names(penguins)`. 
+There are are three factor variables which are species, factor, and sex. 
+
+For variable species, the categories are `r levels(penguins$species)`.
+For variable island, the categories are `r levels(penguins$island)`.
+For variable sex, the categories are `r levels(penguins$sex)`.
+
+
+the size of the data set is
+rlevels (penguins$island)
+rlevels (penguins$species)
+rncol(penguins)
+
+`r round(mean(penguins$flipper_length_mm))`
