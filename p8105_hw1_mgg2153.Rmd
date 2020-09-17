@@ -5,13 +5,16 @@ date: "9/16/2020"
 output: github_document
 ---
 
+## P8105 Homework 1
+
 ```{r}
 library(tidyverse)
 ```
 
-Problem 1: First, load the tidyverse library and create a dataframe using tibble
+### Problem 1 
+First, load the tidyverse library and create a dataframe using tibble
 
-```{r}
+```{r create_dataframe}
 mg_dataf = 
   tibble(
     samp = rnorm(10),
@@ -19,23 +22,44 @@ mg_dataf =
     vec_char = c("Hello", "world", "I", "am", "Maria", "and", "Frankie", "is","my", "pug"),
     factor_vec = factor(c("noun", "noun", "noun", "verb", "noun", "noun", "noun", "verb", "adj", "noun"))
   )
-print (mg_dataf)
 ```
 
-Take the mean of each variable in my data frame.
+Then, I want to take the mean of each variable in my data frame. the purpose is to
+see how R treats different variable types, and what happens when you try to take the
+mean of these different variable types.
 
-```{r}
+```{r var_means}
 mean(pull(mg_dataf, samp))
 mean(pull(mg_dataf, vec_logical))
 mean(pull(mg_dataf, vec_char))
 mean(pull(mg_dataf, factor_vec))
 ```
 
-penguins
+I can take the mean of my numeric and logical variables, but not of the character
+or factor variables.Using the code below, we can try to convert the non-numeric
+types into numeric variables:
+
+```{r eval=FALSE}
+as.numeric(pull(mg_dataf, vec_logical))
+as.numeric(pull(mg_dataf, vec_char))
+as.numeric(pull(mg_dataf, factor_vec))
+```
+
+```{r convert_var}
+x = as.numeric(pull(mg_dataf, vec_logical))*(pull(mg_dataf, samp))
+y = as.factor(pull(mg_dataf, vec_logical))*(pull(mg_dataf, samp))
+z = as.numeric(as.factor(pull(mg_dataf, factor_vec)))*(pull(mg_dataf, samp))
+```
+
+### Problem 2 - Penguins!
+
+First, I want to load the penguins package per instruction on HW1. 
+
 ```{r load_penguins}
 data("penguins", package = "palmerpenguins")
 
 ```
+#### Overview: penguins dataset
 
 The penguins dataset has `r nrow(penguins)` observations and `r ncol(penguins)` variables, 
 which are: `r names(penguins)`. 
@@ -66,6 +90,10 @@ the standard deviation is `r sd(na.omit(penguins$body_mass_g))`.
 
 year:
 the range of years in the dataset is from `r min(penguins$year)` to `r max(penguins$year)`.
+
+
+### Scatterplot of bill length vs flipper length
+We are looking at how these two variables behave:
 
 ```{r plotting}
 ggplot(data = penguins, 
